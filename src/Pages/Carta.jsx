@@ -44,7 +44,7 @@ function Carta() {
   ];
 
   return (
-    <div style={{backgroundColor:"gray", padding:"40px"}}>
+    <div style={{padding:"40px"}}>
       <h2 style={{ textAlign: "center", marginBottom: "40px"}}>Nuestra Carta</h2>
       <div style={{ 
         display: "flex", 
