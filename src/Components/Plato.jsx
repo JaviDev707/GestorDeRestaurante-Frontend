@@ -5,7 +5,7 @@ function Plato({ imagen, nombre, descripcion }) {
         border: "1px solid #ddd",
         borderRadius: "10px",
         padding: "15px",
-        width: "75%",
+        width: "50%",
         boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
         display: "flex",      
         alignItems: "center",   

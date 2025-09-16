@@ -13,7 +13,7 @@ function App() {
         {/* Pagina principal */}
         <Route path="/" element={
           <div className="div-pricipal" style={{ textAlign: "center"}}>
-            <img src='logo-kakarama.png' alt='KakaramaLogo' />
+            <img src='/img/logo-kakarama.png' alt='KakaramaLogo' />
           </div>
         } />
         {/* Pagina de carta */}
