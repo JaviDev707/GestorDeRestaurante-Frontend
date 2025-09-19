@@ -2,11 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import {
   Container, Box, Avatar, Typography,
-  TextField, Button, FormControlLabel, Checkbox, Grid, Link
+  TextField, Button, FormControlLabel, Checkbox
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
-function Login() {
+function Registro() {
 
   const [error, setError] = useState(null);
 
@@ -17,7 +17,7 @@ function Login() {
     const password = data.get("password");
 
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/login", {
+      const response = await axios.post("http://localhost:8080/api/auth/registro", {
         email,
         password,
       });
@@ -27,13 +27,17 @@ function Login() {
       // Guardo el token en localStorage 
       localStorage.setItem("token", token);
 
-      console.log("Usuario logeado ✅, token:", token);
-      alert("✅ Usuario logeado con éxito");
+      console.log("Usuario registrado ✅, token:", token);
+      alert("✅ Usuario registrado con éxito");
 
     } catch (err) {
-      alert("❌ Usuario o contraseña incorrectos/as.");
-      console.error("Error al logear:", err);
-      setError("No se pudo logear. Intenta de nuevo.");
+      if (err.response && err.response.status === 400) {
+        alert("⚠️ El usuario ya está registrado");
+      } else {
+        alert("❌ Error al registrar. Intentalo de nuevo.");
+        console.error("Error al registrar:", err);
+        setError("No se pudo registrar. Intenta de nuevo.");
+      }
     }
   };
 
@@ -51,7 +55,7 @@ function Login() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Iniciar sesión
+          Crear cuenta
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -86,16 +90,10 @@ function Login() {
           >
             Sign In
           </Button>
-          <Grid container style={{ marginTop: "20px" }}>
-            <Grid item>
-              <Link href="/registro" variant="body2">
-                {"No tienes cuenta? Registrate!"}
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Box>
     </Container>
   );
 }
-export default Login;
+
+export default Registro;

@@ -15,7 +15,7 @@ function Plato({ imagen, nombre, descripcion }) {
       <img
         src={imagen}
         alt={nombre}
-        style={{ width: "120px", borderRadius: "10px" }} // tamaño fijo de la img
+        style={{ width: "120px", borderRadius: "10px" , backgroundColor: "#096FC8"}} // tamaño fijo de la img
       />
 
       <div>
