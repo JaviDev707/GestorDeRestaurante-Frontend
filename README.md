@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 🍔 Aplicación Restaurante (En desarrollo)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación **fullstack** para la gestión de un restaurante. Consume el backend de https://github.com/JaviDev707/GestorDeRestaurante-Backend.  
+Permite a los usuarios **ver la carta**, **registrarse**, **iniciar sesión** y **realizar reservas** protegidas mediante **JWT**.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🛠️ Tecnologías utilizadas
 
-### `npm start`
+### 🔹 Backend (Spring Boot)
+- Java 21  
+- Spring Boot 3  
+- Spring Security + JWT  
+- Spring Data JPA  
+- MySQL  
+- Maven  
+- Docker / Docker Compose  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🔹 Frontend (React)
+- React 18  
+- React Router DOM  
+- Axios  
+- Context API (para autenticación con JWT)  
+- TailwindCSS (opcional para estilos)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚙️ Funcionalidades principales
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| **Autenticación** | Registro e inicio de sesión con JWT |\
+| **Carta** | Listado público de platos divididos por categoría que bebe de una BD MySQL |\
+| **Reservas** | Creación de reservas protegidas (requiere token) |\
+| **Roles** | Usuarios ADMIN y CLIENTE con accesos diferenciados |\
+| **Docker** | Backend y BD desplegables con contenedores |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧩 Ejemplo de reserva (JSON)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+{
+  "numComensales": 4,
+  "fecha": "2025-10-22",
+  "turno": "CENA2"
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+El backend asociará automáticamente el cliente logueado (a través del JWT) y asignará una mesa libre disponible en ese turno si es que la hay.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔐 Seguridad
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+El sistema utiliza Spring Security con JWT para proteger las rutas.
+El token se almacena en el LocalStorage del navegador tras el login y se envía automáticamente en los headers de cada petición protegida.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧱 Mejoras futuras
 
-## Learn More
+- Panel de administración para gestionar reservas y mesas.
+- Sistema de notificaciones por correo.
+- Validación avanzada de disponibilidad.
+- Implementación de roles visuales en el frontend (admin/client).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Desarrollado por JaviDev707
