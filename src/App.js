@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -12,23 +12,34 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Routes >
+      <Routes>
         {/* Pagina principal */}
-        <Route path="/" element={
-          <div className="div-pricipal" style={{ textAlign: "center" }}>
-            <img src='/img/logo-kakarama.png' alt='KakaramaLogo' />
-          </div>
-        } />
+        <Route
+          path="/"
+          element={
+            <div className="div-pricipal" style={{ textAlign: "center" }}>
+              <img src="/img/logo-kakarama.png" alt="KakaramaLogo" />
+            </div>
+          }
+        />
         {/* Pagina de carta */}
         <Route path="/carta" element={<Carta />} />
         {/* Pagina del Login */}
         <Route path="/login" element={<Login />} />
         {/* Pagina de registro */}
         <Route path="/registro" element={<Registro />} />
-        {/* Pagina de reservas */}  
+        {/* Pagina de reservas */}
         <Route path="/reservas" element={<Reservas />} />
         {/* Ruta protegida */}
-        <Route path="/reservas" element={<RutaPrivada> <Reservas /> </RutaPrivada>}/>
+        <Route
+          path="/reservas"
+          element={
+            <RutaPrivada>
+              {" "}
+              <Reservas />{" "}
+            </RutaPrivada>
+          }
+        />
       </Routes>
       <Footer />
     </Router>
